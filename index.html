@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ethan Lau | 2025 年度团课回顾</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orbs" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="confetti" id="confetti" aria-hidden="true"></div>
+
+    <main class="app" id="app">
+      <section class="page page--intro is-active" data-page="0">
+        <div class="hero">
+          <p class="hero__tag">Ethan Lau</p>
+          <h1 class="hero__title">2025 年度回顾</h1>
+          <p class="hero__subtitle">把这一年的汗水与笑声打包成专属回忆</p>
+          <p class="hero__subtitle">看看你和 Ethan Lau 的训练故事与足迹</p>
+          <div class="hero__card">
+            <label class="field">
+              <input id="nameInput" type="text" placeholder="请输入乐刻ID（例如：虎子哥）" title="请输入乐刻ID（例如：虎子哥）" autocomplete="off" />
+            </label>
+            <button class="btn btn--primary" id="startBtn">生成报告</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="page page--overview" data-page="1">
+        <header class="page__header">
+          <p class="page__label">年度总览</p>
+          <h2 class="page__title">你好，<span id="userName">学员</span></h2>
+          <p class="page__subtitle">这一年，我们一起打了很多场漂亮的仗</p>
+        </header>
+        <div class="stat-grid">
+          <div class="stat">
+            <span class="stat__value" id="totalClasses">0</span>
+            <span class="stat__label">参与课次</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value" id="attendanceCount">0</span>
+            <span class="stat__label">签到次数</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value" id="missedCount">0</span>
+            <span class="stat__label">请假次数</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value" id="attendanceRate">0%</span>
+            <span class="stat__label">出勤率</span>
+          </div>
+        </div>
+        <div class="callout" id="summaryNote"></div>
+      </section>
+
+      <section class="page page--first" data-page="2">
+        <header class="page__header">
+          <p class="page__label">第一次相遇</p>
+          <h2 class="page__title">那一天，我们开始一起训练</h2>
+          <p class="page__subtitle">记住这次出发的坐标</p>
+        </header>
+        <div class="story-card">
+          <div class="story-line">
+            <span>初次见面</span>
+            <strong id="firstMeetDate">2025 年 8 月 22 日</strong>
+          </div>
+          <div class="story-line">
+            <span>第一次上课门店</span>
+            <strong id="firstMeetStore">江北九街店</strong>
+          </div>
+          <div class="story-line">
+            <span>第一节课</span>
+            <strong id="firstClass">BODYCOMBAT® 燃脂搏击</strong>
+          </div>
+          <div class="story-total">
+            从那天起到现在，共完成
+            <span id="totalClassesHighlight">0</span>
+            节课
+          </div>
+        </div>
+      </section>
+
+      <section class="page page--months" data-page="3">
+        <header class="page__header">
+          <p class="page__label">月度节奏</p>
+          <h2 class="page__title">你的训练节拍</h2>
+          <p class="page__subtitle">看看哪一个月最燃</p>
+        </header>
+        <div class="month-grid" id="monthGrid"></div>
+        <p class="note" id="monthNote"></p>
+      </section>
+
+      <section class="page page--favorite" data-page="4">
+        <header class="page__header">
+          <p class="page__label">最爱的课</p>
+          <h2 class="page__title">你今年最爱的课程是</h2>
+          <p class="page__subtitle" id="favoriteClass"></p>
+        </header>
+        <div class="list" id="courseList"></div>
+      </section>
+
+      <section class="page page--venues" data-page="5">
+        <header class="page__header">
+          <p class="page__label">常去门店</p>
+          <h2 class="page__title">我们的相遇坐标</h2>
+          <p class="page__subtitle" id="topVenue"></p>
+        </header>
+        <div class="list" id="venueList"></div>
+      </section>
+
+      <section class="page page--buddies" data-page="6">
+        <header class="page__header">
+          <p class="page__label">训练拍档</p>
+          <h2 class="page__title">你的训练搭子 TOP3</h2>
+          <p class="page__subtitle">和你一起坚持的人值得被点名</p>
+        </header>
+        <div class="buddy-grid" id="buddyGrid"></div>
+        <div class="callout" id="buddyNote"></div>
+      </section>
+
+      <section class="page page--camp" data-page="7">
+        <header class="page__header">
+          <p class="page__label">感谢与期待</p>
+          <h2 class="page__title">谢谢你这一年的陪伴</h2>
+          <p class="page__subtitle">2026 期待更多相遇与并肩</p>
+        </header>
+        <div class="gratitude-card">
+          <p class="gratitude-card__lead" id="campStatus"></p>
+          <p class="gratitude-card__body" id="campNote"></p>
+          <div class="gratitude-card__signature">
+            <strong>Ethan Lau</strong>
+          </div>
+        </div>
+      </section>
+
+      <nav class="pager" id="pager">
+        <button class="pager__btn" id="prevBtn">上一页</button>
+        <div class="pager__dots" id="pagerDots"></div>
+        <button class="pager__btn" id="nextBtn">下一页</button>
+      </nav>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
